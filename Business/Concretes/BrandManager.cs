@@ -31,8 +31,8 @@ public class BrandManager : IBrandService
 
         //Mapping
         CreatedBrandResponse createdBrandResponse = new CreatedBrandResponse();
-        createdBrandResponse.Name = brand.Name;
         createdBrandResponse.Id = 4;
+        createdBrandResponse.Name = brand.Name;
         createdBrandResponse.CreatedDate = brand.CreatedDate;
 
         return createdBrandResponse;
@@ -40,6 +40,19 @@ public class BrandManager : IBrandService
 
     public List<GetAllBrandResponse> GetAll()
     {
-        throw new NotImplementedException();
+        List<Brand> brands = _brandDal.GetAll();
+
+        List<GetAllBrandResponse> getAllBrandResponses = new List<GetAllBrandResponse>();
+
+        foreach (var brand in brands)
+        {
+            GetAllBrandResponse getAllBrandResponse = new GetAllBrandResponse();
+            getAllBrandResponse.Id = brand.Id;
+            getAllBrandResponse.Name = brand.Name;
+            getAllBrandResponse.CreatedDate = brand.CreatedDate;
+
+            getAllBrandResponses.Add(getAllBrandResponse);
+        }
+        return getAllBrandResponses;
     }
 }
