@@ -15,4 +15,4 @@ public interface IBrandService
     List<GetAllBrandResponse> GetAll();
 }
 //responses and requests
-//yanıt ve istek
+//yanıtlar ve istekler

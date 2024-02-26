@@ -24,6 +24,7 @@ public class BrandManager : IBrandService
 
         //Mapping --> Automapper
         Brand brand = new Brand();
+        brand.Id = 4;
         brand.Name = createBrandRequest.Name;
         brand.CreatedDate = DateTime.Now;
 
@@ -31,7 +32,7 @@ public class BrandManager : IBrandService
 
         //Mapping
         CreatedBrandResponse createdBrandResponse = new CreatedBrandResponse();
-        createdBrandResponse.Id = 4;
+        createdBrandResponse.Id = brand.Id;
         createdBrandResponse.Name = brand.Name;
         createdBrandResponse.CreatedDate = brand.CreatedDate;
 
